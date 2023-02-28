@@ -1,0 +1,4 @@
+project: go-ethlibs
+target: go-ethlibs-decoder-fuzz
+cmds:
+  - cmd: ./decoder-fuzz.libfuzzer
