@@ -4,7 +4,7 @@ ARG fuzzTargetPath='rlp/fuzz'
 
 ADD . ${project}
 WORKDIR ${project}/${fuzzTargetPath}
-RUN go get -u github.com/dvyukov/go-fuzz/go-fuzz@latest github.com/dvyukov/go-fuzz/go-fuzz-build@latest
+RUN go install github.com/dvyukov/go-fuzz/go-fuzz@latest github.com/dvyukov/go-fuzz/go-fuzz-build@latest
 RUN GO_ENABLED=0 go-fuzz-build -libfuzzer -o /decoder-fuzz.a .
 
 FROM silkeh/clang:latest as sanitizer
